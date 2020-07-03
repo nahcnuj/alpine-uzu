@@ -1,9 +1,10 @@
 FROM rakudo-star:2020.01-alpine
 
 RUN apk --update add \
-    curl \
-    git
+        curl \
+        git
 
 RUN zef install Uzu
 
-CMD [ "uzu", "build" ]
+ENTRYPOINT [ "uzu" ]
+CMD [ "build" ]
