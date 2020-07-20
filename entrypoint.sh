@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
-set -ex
 
-if [ ! -z ${LOCAL_UID} -o ! -z ${LOCAL_GID}]; then
+if [ ! -z ${LOCAL_UID} -o ! -z ${LOCAL_GID} ]; then
     USER_ID=${LOCAL_UID:-1000}
     GROUP_ID=${LOCAL_GID:-1000}
 
@@ -11,9 +10,4 @@ if [ ! -z ${LOCAL_UID} -o ! -z ${LOCAL_GID}]; then
     SU='su-exec user'
 fi
 
-${SU} echo hello
-${SU} touch hoge
-${SU} ls -lR ../
 ${SU} uzu "$@"
-
-echo hello
