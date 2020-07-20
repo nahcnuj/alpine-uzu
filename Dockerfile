@@ -1,10 +1,16 @@
 FROM rakudo-star:2020.01-alpine
 
-RUN apk --update add \
+RUN apk --no-cache add \
         curl \
-        git
+        git \
+        su-exec
 
 RUN zef install Uzu
 
-ENTRYPOINT [ "uzu" ]
+WORKDIR /home/user
+COPY entrypoint.sh .
+
+STOPSIGNAL SIGINT
+
+ENTRYPOINT [ "./entrypoint.sh" ]
 CMD [ "build" ]
