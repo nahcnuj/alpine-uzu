@@ -10,4 +10,4 @@ if [ ! -z "${LOCAL_UID}" -o ! -z "${LOCAL_GID}" ]; then
     SU='su-exec user'
 fi
 
-${SU} uzu "$@"
+${SU} uzu $@
