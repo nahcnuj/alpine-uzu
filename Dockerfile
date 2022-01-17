@@ -1,4 +1,4 @@
-FROM rakudo-star:2020.01-alpine
+FROM rakudo-star:2021.04-alpine
 
 RUN apk --no-cache add \
         curl \
