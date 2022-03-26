@@ -5,7 +5,7 @@ RUN apk --no-cache add \
         git \
         su-exec
 
-RUN zef install Uzu
+RUN zef install "Uzu:ver<0.3.6>"
 
 RUN adduser -D user
 WORKDIR /home/user
