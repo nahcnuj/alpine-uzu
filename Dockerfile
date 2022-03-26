@@ -7,10 +7,11 @@ RUN apk --no-cache add \
 
 RUN zef install Uzu
 
+RUN adduser -D user
 WORKDIR /home/user
 COPY ./entrypoint.sh /usr/local/bin
 
 STOPSIGNAL SIGINT
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
-CMD [ "build" ]
+CMD [ "uzu", "build" ]
